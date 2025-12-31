@@ -1,0 +1,8 @@
+import csv
+
+data = [['title', 'author', 'year'],
+        ['Menguasai Cybersec dalam sehari 100% working', 'Siona', '2060']]
+
+with open('book.csv', 'w', newline='', encoding='utf-8') as file:
+    writer = csv.writer(file)
+    writer.writerows(data)

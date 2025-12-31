@@ -1,0 +1,40 @@
+<h2>Search Books</h2>
+
+<form method="GET" class="row g-3 mt-2 mb-4">
+    <div class="col-md-8">
+        <input
+            class="form-control"
+            type="text"
+            name="author"
+            placeholder="Author Name"
+            value="{{ keyword }}" />
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success w-100">Search</button>
+    </div>
+</form>
+
+{% if results %}
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for b in results %}
+        <tr>
+            <td>{{ b[0] }}</td>
+            <td>{{ b[1] }}</td>
+            <td>{{ b[2] }}</td>
+            <td>{{ b[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>No results found.</p>
+{% endif %}

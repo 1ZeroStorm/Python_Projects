@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="mb-4">Welcome to the Library Management System</h1>
+
+<div class="list-group">
+    <a href="/books" class="list-group-item list-group-item-action">Manage Books</a>
+    <a href="/search" class="list-group-item list-group-item-action">Search Books</a>
+    <a href="/export" class="list-group-item list-group-item-action">Export CSV</a>
+    <a href="/import" class="list-group-item list-group-item-action">Import CSV</a>
+    <a href="/reset" class="list-group-item list-group-item-action list-group-item-danger">Reset All Data</a>
+</div>
+
+{% endblock %}
