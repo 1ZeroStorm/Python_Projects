@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>Impor Data Pelanggaran</h3>
+  <div class="card">
+    <div class="card-body">
+      <p>Pilih file CSV untuk mengimpor data pelanggaran. File harus mengandung kolom: id, name, absen, kelas, violation_type, reason</p>
+      
+      <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="file" class="form-label">Pilih File CSV</label>
+          <input type="file" class="form-control" id="file" name="file" accept=".csv" required>
+          <small class="form-text text-muted">Format: CSV (Comma-Separated Values)</small>
+        </div>
+        
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary" type="submit">Impor</button>
+          <a class="btn btn-secondary" href="{{ url_for('index') }}">Batal</a>
+        </div>
+      </form>
+      
+      <hr>
+      
+      <h5>Contoh Format CSV:</h5>
+      <pre>id,name,absen,kelas,violation_type,reason
+1,Budi Santoso,01,XI A,Terlambat,Terlambat 15 menit
+2,Ani Wijaya,02,XI A,Alpha,Tidak masuk sekolah
+</pre>
+      
+      <p class="mt-3">
+        <strong>Catatan:</strong> Jika Anda ingin ekspor data terlebih dahulu sebelum membuat template, gunakan tombol "Ekspor (CSV)" di halaman daftar pelanggaran.
+      </p>
+    </div>
+  </div>
+{% endblock %}

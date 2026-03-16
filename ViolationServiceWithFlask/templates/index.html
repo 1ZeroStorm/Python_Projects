@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Daftar Pelanggaran</h3>
+    <div class="d-flex gap-2">
+      <a class="btn btn-success" href="{{ url_for('create') }}">Tambah Data</a>
+      <a class="btn btn-info" href="{{ url_for('export') }}">Ekspor (CSV)</a>
+      <a class="btn btn-warning" href="{{ url_for('import_data') }}">Impor (CSV)</a>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nama</th>
+        <th>Absen</th>
+        <th>Kelas</th>
+        <th>Pelanggaran</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for it in items %}
+      <tr>
+        <td>{{ it.id }}</td>
+        <td>{{ it.name }}</td>
+        <td>{{ it.absen }}</td>
+        <td>{{ it.kelas }}</td>
+        <td>{{ it.violation_type }}</td>
+        <td>
+          <a class="btn btn-sm btn-primary" href="{{ url_for('view', vid=it.id) }}">Lihat</a>
+          <a class="btn btn-sm btn-warning" href="{{ url_for('edit', vid=it.id) }}">Edit</a>
+          <form method="post" action="{{ url_for('delete', vid=it.id) }}" style="display:inline" onsubmit="return confirm('Hapus data?');">
+            <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="7">Belum ada data.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

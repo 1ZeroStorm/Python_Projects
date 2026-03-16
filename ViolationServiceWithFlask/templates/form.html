@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>{{ 'Edit' if item else 'Tambah' }} Pelanggaran</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Nama Murid</label>
+      <input name="name" class="form-control" required value="{{ item.name if item else '' }}">
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Nomor Absen</label>
+        <input name="absen" class="form-control" value="{{ item.absen if item else '' }}">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Kelas</label>
+        <input name="kelas" class="form-control" value="{{ item.kelas if item else '' }}">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Jenis Pelanggaran</label>
+      <input name="violation_type" class="form-control" value="{{ item.violation_type if item else '' }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Alasan</label>
+      <textarea name="reason" class="form-control">{{ item.reason if item else '' }}</textarea>
+    </div>
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary" type="submit">Simpan</button>
+      <a class="btn btn-secondary" href="{{ url_for('index') }}">Batal</a>
+    </div>
+  </form>
+{% endblock %}

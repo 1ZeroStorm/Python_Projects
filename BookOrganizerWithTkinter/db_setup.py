@@ -29,7 +29,7 @@ def setup_database():
                    )    
     """)
     db.close()
-        print("Database and tables are ready to use")
+    print("Database and tables are ready to use")
 
 if __name__ == "__main__":
     setup_database()
