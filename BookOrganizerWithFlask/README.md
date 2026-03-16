@@ -36,3 +36,5 @@ A simple Flask web application to manage a collection of books. Perform CRUD ope
 5. Copy the local address shown in the terminal (for example, `http://127.0.0.1:5000`) and open it in your browser.
 
 You're ready to manage your book collection from the browser.
+if you're using python environment in a seperate drive with this file
+& "C:\Users\Windows10\AppData\Local\Programs\Python\Python311\python.exe" F:\github\Python_Projects\BookOrganizerWithFlask\app.py
